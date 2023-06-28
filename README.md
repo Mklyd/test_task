@@ -22,3 +22,24 @@
 3.Запустите команду docker-compose up, чтобы запустить контейнеры проекта:
 
     docker-compose up
+    
+Запуск
+
+1. Запустите команду makemigrations для создания миграций:
+
+    docker-compose exec web python manage.py makemigrations
+
+2.Запустите команду migrate, чтобы применить миграции :
+
+    docker-compose exec web python manage.py migrate
+
+Использование приложения
+
+1. Запустите команду createsuperuser для создания администратора:
+
+    docker-compose exec web python manage.py createsuperuser
+
+2. Откройте веб-браузер и перейдите по адресу http://localhost:8000/admin.
+
+3. Добавьте задачи в административной панели
+4. Перейдите по адресу http://localhost:8000/tasks, для просмотра добавленных задач
