@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список задач</title>
+</head>
+<body>
+    <h1>Список задач</h1>
+    <form method="get" action="{% url 'task_list' %}">
+        <label for="status">Фильтр по статусу:</label>
+        <select name="status" id="status">
+            <option value="">Все</option>
+            <option value="completed">Выполнено</option>
+            <option value="not_completed">Не выполнено</option>
+        </select>
+        <button type="submit">Применить</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task.description }} - {{ task.status }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
